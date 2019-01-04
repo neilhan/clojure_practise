@@ -1,4 +1,4 @@
-(ns clojure.examples.hello
+(ns ca.neilhan.clojure4.hello
   (:gen-class)
   (:require [clojure.set :as set]))
 

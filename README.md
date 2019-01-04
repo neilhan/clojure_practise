@@ -1,36 +1,19 @@
-# my-app
+Some collection of docker images
+--------------------------------
+# to run GUI app on mac os
+install XQuartz by: brew cask install xquartz
+The run.sh will add docker display to xhost.
 
-FIXME: description
+# dnn_gui
+GUI enabled, works for mac os. 
+vim, gvim 
+python3, tensorflow, gym
 
-## Installation
+# vim
+GUI enabled, works with mac os.
+vim, gvim
 
-Download from http://example.com/FIXME.
-
-## Usage
-
-FIXME: explanation
-
-    $ java -jar my-app-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2018 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+# General idea for GUI app dockers
+To run a GUI app in docker, the vim/run.sh + func.sh is the good example. 
+# gui, gui2
+not used anymore. Was working with fedora and centos. 

@@ -1,19 +1,19 @@
-Some collection of docker images
---------------------------------
-# to run GUI app on mac os
-install XQuartz by: brew cask install xquartz
-The run.sh will add docker display to xhost.
+# Clojure practise
 
-# dnn_gui
-GUI enabled, works for mac os. 
-vim, gvim 
-python3, tensorflow, gym
+The answers that I did for http://www.4clojure.com
 
-# vim
-GUI enabled, works with mac os.
-vim, gvim
+To use the docker as a development env:
+```bash
+# to build the docker image
+./docker_build.sh
+# or to build a fresh docker image
+./docker_build.sh new
 
-# General idea for GUI app dockers
-To run a GUI app in docker, the vim/run.sh + func.sh is the good example. 
-# gui, gui2
-not used anymore. Was working with fedora and centos. 
+# to start the docker container with a z-shell, which gives you lein clojure development env.
+./docker_run.sh
+# or to put any command that you want to run as parameters
+./docker_run.sh ls /home/clojure
+
+```
+
+The docker_run.sh and func.sh provide a docker container that will let you run GUI apps. 

@@ -3,16 +3,11 @@
 
 (defn -main [& args]
   (println
-    (take 100
-          (#(letfn [
-                    (pascals [xs]
-                      (let [l (concat xs [0]),
-                            r (concat [0] xs)]
-                        (into [] (map +' l r))
-                        ))
-                    (pascals-lazy-seq [xs]
-                      (lazy-seq (cons xs (pascals-lazy-seq (pascals xs)))))]
-              (pascals-lazy-seq %1)
+    (take 10
+          (#(letfn [(pascals [xs]
+                      (into [] (map +' (concat xs [0]) (concat [0] xs))))
+                    ]
+              (iterate pascals %1)
               )
             [2 4 2]
             )
@@ -20,3 +15,8 @@
     )
   (println args))
 
+(fn [xs]
+  (iterate
+    #(map +' (concat [0] %) (concat % [0]))
+    xs)
+  )

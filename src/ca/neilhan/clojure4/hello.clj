@@ -2,6 +2,11 @@
   (:gen-class)
   (:require [clojure.set :as set]))
 
+(defn -main [& args]
+  (println
+    (take 20 (iterate inc 1))
+    )
+  )
 
 (#(letfn [
           (get-max [& n] (->> n

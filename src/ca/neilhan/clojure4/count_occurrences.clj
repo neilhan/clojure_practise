@@ -2,8 +2,6 @@
   (:gen-class)
   (:require [clojure.set :as set]))
 
-; other solutions
-; #(vals (group-by type %))
 (def __
   (fn [xs] (->> xs
                 (group-by identity)

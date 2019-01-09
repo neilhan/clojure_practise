@@ -1,8 +1,9 @@
 (ns ca.neilhan.clojure4.find_distinct_items
   (:gen-class))
 
+; Write a function which removes the duplicates from a sequence. Order of the items must be maintained.
 
-; good solutions:
+; others solution:
 ; #(sort-by (fn [i] (.indexOf % i)) (map first (group-by identity %)))
 (defn __
   [xs]
@@ -16,10 +17,8 @@
                                               [the_set result]
                                               (list (conj the_set x) (conj result x))))
           [#{} []] xs))
-  )
+  ) 
 
-
-; Write a function which removes the duplicates from a sequence. Order of the items must be maintained.
 
 (println 
   (= (__ [1 2 1 3 1 2 4]) [1 2 3 4]))

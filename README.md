@@ -27,3 +27,9 @@ lein repl
 ```
 
 The docker_run.sh and func.sh provide a docker container that will let you run GUI apps. 
+
+```
+docker_run.sh
+lein repl
+(load-file "src/ca/neilhan/clojure4/..???.clj")
+```

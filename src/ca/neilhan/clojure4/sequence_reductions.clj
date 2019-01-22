@@ -1,37 +1,27 @@
-(ns ca.neilhan.clojure4.anagram_finder
+(ns ca.neilhan.clojure4.sequence_reductions
   (:gen-class))
 
-(defn __ [words]
-  (->> words
-       (group-by set)
-       vals
-       (filter #(> (count %) 1))
-       (map set)
-       set
-       ))
+; Write a function which behaves like reduce, 
+; but returns each intermediate value of the reduction. 
+; Your function must accept either two or three arguments, 
+; and the return sequence must be lazy.
 
-(println 
-  (__ ["meat" "mat" "team" "mate" "eat"]))
+(defn __ 
+  ([f xs] (__ f (first xs) (next xs)))
+  ([f init xs] (if (empty? xs)
+                 (cons init nil)
+                 (lazy-seq (cons init (__ f (f init (first xs)) (next xs)))))))
 
-; Write a function which finds all the anagrams in a vector of words. 
-; A word x is an anagram of word y if all the letters in x can be rearranged 
-; in a different order to form y. Your function should return a set of sets, 
-; where each sub-set is a group of words which are anagrams of each other. 
-; Each sub-set should have at least two words. Words without any anagrams should not be included in the result.
+(println (take 5 (__ + (range))))
+
+(println (__ conj [1] [2 3 4]))
 
 (println
-  (= (__ ["meat" "mat" "team" "mate" "eat"])
-		#{#{"meat" "team" "mate"}}))
+  (= (take 5 (__ + (range))) [0 1 3 6 10]))
 
 (println
-  (= (__ ["veer" "lake" "item" "kale" "mite" "ever"])
-		#{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}}))
+  (= (__ conj [1] [2 3 4]) [[1] [1 2] [1 2 3] [1 2 3 4]]))
 
-
-; other interesting solution
-; #(->> (group-by sort %)
-;   vals
-;   (filter next)
-;   (map set)
-;   set)
+(println
+  (= (last (__ * 2 [3 4 5])) (reduce * 2 [3 4 5]) 120))
 
